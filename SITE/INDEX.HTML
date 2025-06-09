@@ -1,0 +1,210 @@
+<!--
+    Matéria: Desenvolvimento WEB: HTML, CSS, JavaScript
+    Instituição: Estácio - Campus Parangaba
+    Semestre: 2025.1
+    Professor: Niltemberg Carvalho
+
+    Aluno: Vitor Sergio De Carli Brito
+    Matrícula: 202203474596
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consultoria e venda de planos de saúde para indivíduos, famílias e empresas.">
+    <meta name="keywords" content="plano de saúde, seguro saúde, plano familiar, plano empresarial, melhor plano de saúde">
+    <title>ConsultPlan - Planos de Saúde e Consultoria</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; background-color: #fff; }
+        header { background-color: #0077cc; padding: 1rem 0; color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        nav ul { list-style: none; display: flex; gap: 1.5rem; justify-content: center; }
+        nav a { color: white; text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        nav a:hover { color: #00e6b8; }
+        .banner { background: url('https://via.placeholder.com/1600x500') center/cover no-repeat; color: white; text-align: center; padding: 6rem 2rem; }
+        .banner h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .btn { background: #00b894; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.3s; }
+        .btn:hover { background: #019875; }
+        section { padding: 4rem 0; }
+        h2 { color: #0077cc; margin-bottom: 1.5rem; font-size: 2rem; text-align: center; }
+        p, ul li { font-size: 1.1rem; margin-bottom: 1rem; }
+        ul { padding-left: 1.5rem; }
+        blockquote { border-left: 4px solid #00b894; margin: 1rem 0; padding-left: 1rem; font-style: italic; background-color: #f9f9f9; padding: 1rem; border-radius: 4px; }
+        footer { background: #f1f1f1; text-align: center; padding: 2rem 1rem; font-size: 0.95rem; color: #444; }
+        .whatsapp-button { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 0.75rem 1rem; border-radius: 50px; text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+        form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+        input, select, textarea { padding: 0.75rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; }
+        input[type="submit"] { background: #0077cc; color: white; border: none; cursor: pointer; font-weight: bold; }
+        input[type="submit"]:hover { background: #005fa3; }
+        .chat-button { position: fixed; bottom: 80px; right: 20px; background: #0077cc; color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+        @media (max-width: 768px) {
+            nav ul { flex-direction: column; align-items: center; }
+            .banner h2 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>ConsultPlan</h1>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#planos">Planos de Saúde</a></li>
+                    <li><a href="#simulacao">Simule Seu Plano</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#faq">Dúvidas Frequentes</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="banner">
+        <div class="container">
+            <h2>Cuidar da sua saúde é nosso compromisso</h2>
+            <a href="#simulacao" class="btn">Faça uma Simulação</a>
+        </div>
+    </section>
+
+    <section id="imagem" style="text-align: center; padding: 2rem 0;">
+        <div class="container">
+            <img src="MEDICOS.avif" alt="Imagem de Médicos"
+                class="zoomable-image"
+                style="max-width: 100%; height: auto; border: 4px solid #0077cc; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); border-radius: 8px; cursor: pointer;">
+        </div>
+    </section>
+
+    <section id="valores" style="padding: 2rem 0; background-color: #f9f9f9;">
+        <div class="container" style="text-align: center;">
+            <h2>Nossos Valores</h2>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+                <div style="max-width: 200px;">
+                    <img src="https://img.icons8.com/ios-filled/100/4CAF50/heart-health.png" alt="Saúde" style="width: 64px; margin-bottom: 0.5rem;">
+                    <p><strong>Saúde</strong><br>Cuidado com seu bem-estar</p>
+                </div>
+                <div style="max-width: 200px;">
+                    <img src="https://img.icons8.com/ios-filled/100/4CAF50/shield.png" alt="Proteção" style="width: 64px; margin-bottom: 0.5rem;">
+                    <p><strong>Proteção</strong><br>Segurança em cada escolha</p>
+                </div>
+                <div style="max-width: 200px;">
+                    <img src="https://img.icons8.com/ios-filled/100/4CAF50/customer-support.png" alt="Atendimento" style="width: 64px; margin-bottom: 0.5rem;">
+                    <p><strong>Atendimento Humanizado</strong><br>Empatia e agilidade sempre</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre">
+        <div class="container">
+            <h2>Sobre Nós</h2>
+            <p>Somos uma empresa especializada em consultoria e vendas de planos de saúde. Com anos de experiência e parcerias com as principais operadoras do mercado, oferecemos soluções personalizadas para indivíduos, famílias, autônomos e empresas de todos os tamanhos.</p>
+            <p>Nosso compromisso é garantir a melhor experiência ao cliente, com atendimento humanizado, suporte completo e total transparência em todas as etapas.</p>
+        </div>
+    </section>
+
+    <section id="planos">
+        <div class="container">
+            <h2>Nossos Planos</h2>
+            <ul>
+                <li><strong>Planos Individuais:</strong> atendimento ideal para quem busca proteção pessoal.</li>
+                <li><strong>Planos Familiares:</strong> cobertura completa para sua família com economia e segurança.</li>
+                <li><strong>Planos Empresariais:</strong> soluções para PME e grandes empresas, valorizando seus colaboradores.</li>
+                <li><strong>Planos para MEIs e Autônomos:</strong> flexibilidade e custo-benefício com ampla cobertura.</li>
+            </ul>
+            <p>Trabalhamos com operadoras de abrangência nacional, com opções de reembolso, ampla rede credenciada e hospitais de excelência.</p>
+        </div>
+    </section>
+
+    <section id="simulacao">
+        <div class="container">
+            <h2>Simule Seu Plano</h2>
+            <form>
+                <input type="text" name="nome" placeholder="Seu nome completo" required>
+                <input type="email" name="email" placeholder="Seu e-mail" required>
+                <input type="tel" name="telefone" placeholder="Telefone/WhatsApp" required>
+                <select name="tipoPlano" required>
+                    <option value="">Selecione o tipo de plano</option>
+                    <option value="individual">Individual</option>
+                    <option value="familiar">Familiar</option>
+                    <option value="empresarial">Empresarial</option>
+                    <option value="mei">MEI/Autônomo</option>
+                </select>
+                <textarea name="mensagem" rows="4" placeholder="Informações adicionais..."></textarea>
+                <input type="submit" value="Solicitar Simulação">
+            </form>
+        </div>
+    </section>
+
+    <section id="depoimentos">
+        <div class="container">
+            <h2>Depoimentos de Clientes</h2>
+            <blockquote>
+                <p>“Excelente atendimento! Me ajudaram a escolher o melhor plano para minha família.” – João S.</p>
+            </blockquote>
+            <blockquote>
+                <p>“Atendimento humanizado e agilidade no processo. Recomendo!” – Maria L.</p>
+            </blockquote>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="container">
+            <h2>Dúvidas Frequentes</h2>
+            <ul>
+                <li><strong>Existe carência?</strong> Sim, o período varia conforme o plano e a operadora escolhida.</li>
+                <li><strong>Consultas e exames são cobertos?</strong> Sim, de acordo com a cobertura e rede credenciada contratada.</li>
+                <li><strong>Quais documentos são necessários?</strong> RG, CPF, comprovante de residência e, em alguns casos, documentos adicionais conforme o tipo de plano.</li>
+                <li><strong>Como funciona a migração ou portabilidade?</strong> É possível realizar portabilidade entre planos e operadoras seguindo regras da ANS e análise prévia.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <div class="container">
+            <p>Contato: contato@CONSULT PLAN.com | (11) 99999-9999</p>
+            <p>Siga-nos nas redes sociais: Facebook | Instagram | LinkedIn</p>
+            <p>CNPJ: 00.000.000/0001-00</p>
+            <p>Seus dados são protegidos conforme a LGPD.</p>
+            <p><a href="#">Termos de uso</a> | <a href="#">Política de privacidade</a></p>
+        </div>
+        <a href="https://wa.me/5511999999999" class="whatsapp-button" target="_blank">Fale Conosco no WhatsApp</a>
+        <a href="#contato" class="chat-button">Fale Conosco</a>
+    </footer>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Zoom" />
+    </div>
+
+    <script>
+        document.querySelector('.zoomable-image').addEventListener('click', function() {
+            document.getElementById('lightbox-img').src = this.src;
+            document.getElementById('lightbox').style.display = 'flex';
+        });
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
